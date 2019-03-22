@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Download the Couchbase operator package. This include binaries for creating
+# Couchbase clusters, once the operator is installed. See installation
+# steps in 'workshop/exercises/00-installing-the-operator.md'.
+
+curl -sL -o /tmp/download.tar.gz https://s3.amazonaws.com/packages.couchbase.com/kubernetes/1.1.0/couchbase-autonomous-operator-openshift_1.1.0-linux_x86_64.tar.gz
+
+mkdir couchbase
+
+tar --strip-components 1 -C couchbase -xvz -f /tmp/download.tar.gz
+
+# Patch the YAML for deploying the operator to use the public images for the
+# Couchbase operator rather than those from the Red Hat registry as we will
+# not have pull secrets setup.
+
+sed -i.bak -e 's%image:.*%image: couchbase/operator:1.1.0%' \
+            couchbase/operator.yaml
+
+sed -i.bak -e 's%baseImage:.*%baseImage: couchbase/server%' \
+           -e 's%version:.*%version: 5.5.2%' \
+           couchbase/couchbase-cluster.yaml
+
+# Add the bin directory for the Couchbase operator clients to the user PATH.
+
+cat << ! >> .bash_profile
+PATH=/opt/app-root/src/couchbase/bin:\$PATH
+!
