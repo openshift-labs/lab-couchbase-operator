@@ -13,16 +13,45 @@ objects:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    labels:
-      app: ${JUPYTERHUB_APPLICATION}
     name: ${JUPYTERHUB_APPLICATION}-res
     namespace: ${JUPYTERHUB_NAMESPACE}
+    labels:
+      app: ${JUPYTERHUB_APPLICATION}
   data:
     extra_resources.json: |-
       {
         "kind": "List",
         "apiVersion": "v1",
         "items": [
+          {
+            "kind": "SecurityContextConstraints",
+            "apiVersion": "security.openshift.io/v1",
+            "metadata": {
+              "name": "${project_namespace}-anyuid",
+              "labels": {
+                "app": "${JUPYTERHUB_APPLICATION}-${JUPYTERHUB_NAMESPACE}",
+                "project": "${project_namespace}"
+              }
+            },
+            "priority": 888,
+            "runAsUser": {
+              "type": "RunAsAny"
+            },
+            "seLinuxContext": {
+              "type": "MustRunAs"
+            },
+            "users": [
+              "system:serviceaccount:${project_namespace}:default"
+            ],
+              "volumes": [
+              "configMap",
+              "downwardAPI",
+              "emptyDir",
+              "persistentVolumeClaim",
+              "projected",
+              "secret"
+            ]
+          },
           {
             "kind": "ServiceAccount",
             "apiVersion": "v1",
