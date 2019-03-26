@@ -88,8 +88,8 @@ data:
             }
           ],
           "roleRef": {
-            "apiGroup": "rbac.authorization.k8s.io",
             "kind": "ClusterRole",
+            "apiGroup": "rbac.authorization.k8s.io",
             "name": "couchbase-operator"
           }
         },
@@ -168,8 +168,8 @@ data:
 '
 ```
 
-As the resources include cluster role bindings, we need to update the policy rules for the spawner cluster role so it can binding those cluster roles against the service account in the project.
- 
+As the resources include cluster role bindings, we need to update the policy rules for the spawner cluster role so it can bind those cluster roles against the service account in the project.
+
 ```execute
 oc patch clusterrole %jupyterhub_application%-%jupyterhub_namespace%-spawner-rules --patch '
 rules:
