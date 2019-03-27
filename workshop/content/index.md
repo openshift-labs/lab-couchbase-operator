@@ -5,32 +5,11 @@ NextPage: exercises/01-operator-prerequisites
 ExitSign: Start Workshop
 ---
 
-Check Couchbase operator is deployed.
 
-```execute-1
-oc rollout status deployment/couchbase-operator
-```
+The [Wikipedia](https://kafka.apache.org/) site describes Couchbase as a:
 
-Create secret to be used for Couchbase cluster.
+> distributed (shared-nothing architecture) multi-model NoSQL document-oriented database software package that is optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data. In support of these kinds of application needs, Couchbase Server is designed to provide easy-to-scale key-value or JSON document access with low latency and high sustained throughput. It is designed to be clustered from a single machine to very large-scale deployments spanning many machines.
 
-```execute-1
-oc apply -f couchbase/secret.yaml
-```
+Before you can use Couchbase for your applications, you need to deploy a Couchbase server cluster.
 
-Set up a watch of pods created for the Couchbase cluster.
-
-```execute-2
-oc get pods -l couchbase_cluster=cb-example --watch
-```
-
-Create the Couchbase cluster.
-
-```execute-1
-oc apply -f couchbase/couchbase-cluster.yaml
-```
-
-Wait for all three pods to be created, one for each replica, then kill the watch.
-
-```execute-2
-<ctrl+c>
-```
+In this workshop, you will learn how to create a Couchbase cluster using the Couchbase operator.
