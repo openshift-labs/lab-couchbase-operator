@@ -60,7 +60,9 @@ and it will update the active definitions.
 Deleting the Workshop
 ---------------------
 
-To delete the running workshop environment run:
+Before deleting anything, close any browser windows running a workshop session. Then wait up to 10 minutes to allow sessions to timeout and the projects created for the sessions to be deleted.
+
+To delete the spawner then run:
 
 ```
 ./scripts/delete-spawner.sh
