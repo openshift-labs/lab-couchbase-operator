@@ -6,7 +6,7 @@ ExitSign: Start Workshop
 ---
 
 
-The [Wikipedia](https://kafka.apache.org/) site describes Couchbase as a:
+The [Wikipedia](https://en.wikipedia.org/wiki/Couchbase_Server) site describes Couchbase as a:
 
 > distributed (shared-nothing architecture) multi-model NoSQL document-oriented database software package that is optimized for interactive applications. These applications may serve many concurrent users by creating, storing, retrieving, aggregating, manipulating and presenting data. In support of these kinds of application needs, Couchbase Server is designed to provide easy-to-scale key-value or JSON document access with low latency and high sustained throughput. It is designed to be clustered from a single machine to very large-scale deployments spanning many machines.
 
