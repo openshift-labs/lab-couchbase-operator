@@ -57,6 +57,14 @@ If you need to change the RBAC definitions, or what resources are created when a
 
 and it will update the active definitions.
 
+Note that if you do this, you will need to re-run:
+
+```
+./scripts/build-workshop.sh
+```
+
+to have any local content changes be used once again as it will revert back to using the image on ``quay.io``.
+
 Deleting the Workshop
 ---------------------
 
