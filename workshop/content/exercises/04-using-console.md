@@ -46,6 +46,6 @@ oc get pods -l couchbase_cluster=cb-example --watch
 
 Once the new container is in a running state, head over to the couchbase web console and click on the servers tab.  You should see a notice that the cluster is rebalancing itself to accomodate the 4th container in the cluster.
 
-![Couchbase Rebalance](console-rebalance.png)
+![Couchbase Rebalance](cluster-rebalance.png)
 
 Pretty awesome, huh?
