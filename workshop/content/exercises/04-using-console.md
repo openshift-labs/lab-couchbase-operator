@@ -21,6 +21,7 @@ Now let's edit the number of replicas from three to four.  Edit the couchbase-cl
 
 ```execute-1
 oc edit CouchbaseCluster/cb-example
+```
 
 Look for the following stanza using your arrows keys:
 
