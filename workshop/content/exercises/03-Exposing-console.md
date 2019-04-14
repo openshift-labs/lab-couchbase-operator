@@ -1,7 +1,7 @@
 ---
 Title: Exposing the Console
 PrevPage: 02-creating-the-cluster
-NextPage: ../finish
+NextPage: 04-using-console
 ---
 
 Now that the couchbase cluster has been deployed, let's take a look at the console for administration of the cluster. In order to access the console, we first need to find and expose the kubernetes service for the UI.  
@@ -49,3 +49,5 @@ This can also be viewed in the OpenShift web console. Click on the console tab t
 Next, expand the *Network* tab and then click on *Routes*. This will show the created route.
 
 ![Network Route](console-routes.png)
+
+Go ahead and click the route to open up the Couchbase web console in a new browser tab.
