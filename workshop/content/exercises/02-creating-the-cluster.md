@@ -11,11 +11,21 @@ cat couchbase/secret.yaml
 ```
 
 You will notice the following stanza:
+    
     data:
         username: QWRtaW5pc3RyYXRvcg==
-        password: cGFzc3dvcmQ=
+         password: cGFzc3dvcmQ=
 
-Keep in mind that the username and password are base 64 encoded.  The decoded valued are Administrator and password.
+Keep in mind that the username and password are base 64 encoded.  The decoded valued are Administrator and password.  You can verify this by runnign the following commands:
+
+```execute-1
+echo $(grep username couchbase/secret.yaml | sed 's/  username: //' | base64 --decode)
+```
+
+```execute-1
+echo $(grep password couchbase/secret.yaml | sed 's/  password: //' | base64 --decode)
+```
+
 
 Create secret to be used for Couchbase cluster.
 
@@ -26,7 +36,7 @@ oc apply -f couchbase/secret.yaml
 Now we can set up a watch of the pods created for the Couchbase cluster so that we can monitor progress as we perform commands.
 
 ```execute-2
-oc get pods -l couchbase_cluster=cb-example --watch
+watch oc get pods -l couchbase_cluster=cb-example
 ```
 
 Now that we have our watch setup, it's time to actually deploy the couchbase cluster. The cluster configuration parameters have been provided for this lab.  Let's take a look at them now:
@@ -85,7 +95,7 @@ A few important things to note in the above configuration is the name of the aut
 oc apply -f couchbase/couchbase-cluster.yaml
 ```
 
-Wait for all three pods to be created, one for each replica, then kill the watch.
+Wait for all three pods to be created and go into a *READY* and *RUNNING* state, one for each replica, then kill the watch. This can take a minute or two.
 
 ```execute-2
 <ctrl+c>
