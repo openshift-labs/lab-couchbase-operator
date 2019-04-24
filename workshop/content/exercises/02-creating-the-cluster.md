@@ -14,7 +14,7 @@ You will notice the following stanza:
     
     data:
         username: QWRtaW5pc3RyYXRvcg==
-         password: cGFzc3dvcmQ=
+        password: cGFzc3dvcmQ=
 
 Keep in mind that the username and password are base 64 encoded.  The decoded valued are Administrator and password.  You can verify this by runnign the following commands:
 

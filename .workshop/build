@@ -29,3 +29,8 @@ sed -i.bak -e 's%baseImage:.*%baseImage: couchbase/server%' \
 cat << ! >> .bash_profile
 PATH=/opt/app-root/src/couchbase/bin:\$PATH
 !
+
+mv workshop /opt/app-root/workshop
+
+# Delete all non required files from the image
+rm -rf Dockerfile README.md LICENSE
