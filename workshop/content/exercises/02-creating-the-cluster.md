@@ -16,7 +16,7 @@ You will notice the following stanza:
         username: QWRtaW5pc3RyYXRvcg==
         password: cGFzc3dvcmQ=
 
-Keep in mind that the username and password are base 64 encoded.  The decoded valued are Administrator and password.  You can verify this by runnign the following commands:
+Keep in mind that the username and password are base 64 encoded.  The decoded valued are "Administrator" and "password".  You can verify this by running the following commands:
 
 ```execute-1
 echo $(grep username couchbase/secret.yaml | sed 's/  username: //' | base64 --decode)
@@ -89,7 +89,7 @@ cat couchbase/couchbase-cluster.yaml
                 - eventing
                 - analytics
 
-A few important things to note in the above configuration is the name of the auth secret (cb-example-auth) being used and the size of the cluster (3). Once you have examined the configuration, let's create the cluster by applying the configuration with the oc apply command:
+A few important things to note in the above configuration is the name of the auth secret (cb-example-auth) being used and the size of the cluster (3). Once you have examined the configuration, let's create the cluster by applying the configuration with the `oc apply` command:
 
 ```execute-1
 oc apply -f couchbase/couchbase-cluster.yaml
