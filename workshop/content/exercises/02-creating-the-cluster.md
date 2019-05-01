@@ -1,7 +1,7 @@
 ---
 Title: Creating the Cluster
 PrevPage: 01-operator-prerequisites
-NextPage: 03-Exposing-console
+NextPage: 03-exposing-console
 ---
 
 One of the first things we need to do is provide authentication information for the couchbase cluster.  This information is provided as a secret on the OpenShift platform. The yaml for creating this secret has been provided for you as part of the lab.  Let's take a look at it:

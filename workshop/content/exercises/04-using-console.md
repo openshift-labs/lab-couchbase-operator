@@ -1,6 +1,6 @@
 ---
 Title: Using the Couchbase Web Console
-PrevPage: 03-Exposing-console
+PrevPage: 03-exposing-console
 NextPage: ../finish
 ---
 
