@@ -4,7 +4,7 @@ PrevPage: ../index
 NextPage: 02-creating-the-cluster
 ---
 
-The couchbase operator is a piece of software that listen for requests and performs standard operations on the database cluster. This ensures that the user can focus on usage of the database instead of spending an inordinate amount of time performing adminstration duties.  You can think of OpenShift operators as automative administration software packages.
+The Couchbase operator is a piece of software that listen for requests and performs standard operations on the database cluster. This ensures that the user can focus on usage of the database instead of spending an inordinate amount of time performing administration duties.  You can think of OpenShift operators as automated administration software agents.
 
 The Couchbase operator is installed into a project to monitor requests to create a Couchbase cluster. The operator can only be deployed and setup by a cluster admin of the OpenShift cluster.  For this reason, the operator has already been installed into a project that is ready for you to use.
 
@@ -33,4 +33,3 @@ deployment "couchbase-operator" successfully rolled out
 ```
 
 If the deployment hasn't yet completed, you will see progress messages as it starts up. Wait for the deployment to finish before proceeding.
-

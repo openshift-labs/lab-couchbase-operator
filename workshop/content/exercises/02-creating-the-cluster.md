@@ -4,19 +4,21 @@ PrevPage: 01-operator-prerequisites
 NextPage: 03-exposing-console
 ---
 
-One of the first things we need to do is provide authentication information for the couchbase cluster.  This information is provided as a secret on the OpenShift platform. The yaml for creating this secret has been provided for you as part of the lab.  Let's take a look at it:
+One of the first things we need to do is provide authentication information for the Couchbase cluster.  This information is provided as a secret on the OpenShift platform. The yaml for creating this secret has been provided for you as part of the lab.  Let's take a look at it:
 
 ```execute-1
 cat couchbase/secret.yaml
 ```
 
 You will notice the following stanza:
-    
+
+```
     data:
         username: QWRtaW5pc3RyYXRvcg==
         password: cGFzc3dvcmQ=
+```
 
-Keep in mind that the username and password are base 64 encoded.  The decoded valued are "Administrator" and "password".  You can verify this by running the following commands:
+Keep in mind that the username and password are base64 encoded. The decoded valued are "Administrator" and "password". You can verify this by running the following commands:
 
 ```execute-1
 echo $(grep username couchbase/secret.yaml | sed 's/  username: //' | base64 --decode)
@@ -25,7 +27,6 @@ echo $(grep username couchbase/secret.yaml | sed 's/  username: //' | base64 --d
 ```execute-1
 echo $(grep password couchbase/secret.yaml | sed 's/  password: //' | base64 --decode)
 ```
-
 
 Create secret to be used for Couchbase cluster.
 
@@ -39,12 +40,15 @@ Now we can set up a watch of the pods created for the Couchbase cluster so that 
 watch oc get pods -l couchbase_cluster=cb-example
 ```
 
-Now that we have our watch setup, it's time to actually deploy the couchbase cluster. The cluster configuration parameters have been provided for this lab.  Let's take a look at them now:
+Now that we have our watch setup, it's time to actually deploy the Couchbase cluster. The cluster configuration parameters have been provided for this lab.  Let's take a look at them now:
 
 ```execute-1
 cat couchbase/couchbase-cluster.yaml
 ```
 
+This should yield:
+
+```
     apiVersion: couchbase.com/v1
         kind: CouchbaseCluster
         metadata:
@@ -88,8 +92,9 @@ cat couchbase/couchbase-cluster.yaml
                 - search
                 - eventing
                 - analytics
+```
 
-A few important things to note in the above configuration is the name of the auth secret (cb-example-auth) being used and the size of the cluster (3). Once you have examined the configuration, let's create the cluster by applying the configuration with the `oc apply` command:
+A few important things to note in the above configuration is the name of the auth secret (`cb-example-auth`) being used and the size of the cluster (3). Once you have examined the configuration, let's create the cluster by applying the configuration with the `oc apply` command:
 
 ```execute-1
 oc apply -f couchbase/couchbase-cluster.yaml
