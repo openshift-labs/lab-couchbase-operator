@@ -3,6 +3,7 @@ Sort: 3
 Title: Workshop Summary
 ExitSign: Finish Workshop
 ---
-Congratulations! You have finished this scenario where you learned how to deploy a fully replicated Couchbase cluster on the OpenShift Container Platform. 
 
-Leave this screen open and show it to one of the booth staff to claim your OpenShift 4 shirt.
+In this lab we've seen how we can use Couchbase operator to create a Couchbase cluster. For more information on the operator, see:
+
+https://docs.couchbase.com/operator/1.0/overview.html
