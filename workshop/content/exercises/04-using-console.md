@@ -32,7 +32,7 @@ Now let's edit the number of replicas from three to four.  We are going to use a
         size: 3
 ```
 
-We will be changing `size: 3` to be `size: 4`
+We will be changing `size: 3` to be `size: 4`. If you have not already, switch back over to the terminal from the web console by clicking on the terminal tab at the top of your screen. Then run the following:
 
 ```execute-1
 oc get CouchbaseCluster/cb-example -o yaml | sed -e 's/size: 3/size: 4/' | oc apply -f -
