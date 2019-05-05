@@ -56,4 +56,4 @@ Next, expand the *Networking* tab and then click on *Routes*. This will show the
 
 ![Network Route](console-routes.png)
 
-Go ahead and click the route to open up the Couchbase web console in a new browser tab.
+Go ahead and click on the route under the *Location* column in the web console to open up the Couchbase web console in a new browser tab.

@@ -100,7 +100,18 @@ A few important things to note in the above configuration is the name of the aut
 oc apply -f couchbase/couchbase-cluster.yaml
 ```
 
-Wait for all three pods to be created and go into a *READY* and *RUNNING* state, one for each replica, then kill the watch. This can take a minute or two.
+Wait for all three pods to be created and go into a *READY* and *RUNNING* state, one for each replica. This can take a minute or two.
+
+You should expect to see something similar the following when all three pods are ready:
+
+```
+NAME              READY     STATUS    RESTARTS   AGE
+cb-example-0000   1/1       Running   0          1m
+cb-example-0001   1/1       Running   0          59s
+cb-example-0002   1/1       Running   0          42s
+```
+
+Now the watch can be killed by running:
 
 ```execute-2
 <ctrl+c>
