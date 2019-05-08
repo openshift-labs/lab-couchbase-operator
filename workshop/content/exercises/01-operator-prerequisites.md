@@ -18,7 +18,9 @@ The CRD object you need to create to request the creation of a Couchbase cluster
 oc auth can-i create couchbaseclusters.couchbase.com
 ```
 
-Where the response is `yes`, you have the appropriate role access.
+Did you type the command in yourself? If you did, click on the command here instead and you will find that it is executed for you. You can click on any command here in the workshop notes which has the <span class="glyphicon glyphicon-play-circle"></span> icon shown to the right of it, and it will be copied to the interactive terminal and run for you.
+
+When run, if the response is `yes` you have the appropriate role access.
 
 We also need to verify that the Couchbase operator has been deployed into your project. To check this, run:
 
